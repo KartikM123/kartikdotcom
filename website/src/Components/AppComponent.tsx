@@ -1,7 +1,7 @@
 import { Component } from "react";
 import React from "react";
 import { TitleComponent } from "./HomePage/TitleComponent";
-import { YearListComponent } from "./HomePage/YearList";
+import { YearListManagerComponent } from "./HomePage/YearListManager";
 
 interface AppComponentProps 
 {
@@ -13,7 +13,7 @@ export class AppComponent extends Component<AppComponentProps> {
         return(
             <div>
                 <TitleComponent />
-                <YearListComponent year="2021"/>
+                <YearListManagerComponent/>
             </div>
         );
     }

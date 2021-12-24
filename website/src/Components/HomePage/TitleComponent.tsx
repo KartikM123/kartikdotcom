@@ -5,7 +5,7 @@ interface TitleComponentProps
 }
 export class TitleComponent extends Component<TitleComponentProps>
 {
-    constructor(props)
+    constructor(props: TitleComponentProps)
     {
         super(props);
     }
