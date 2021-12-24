@@ -1,0 +1,25 @@
+{
+    "projects":
+    [
+        {
+            "name": "netlist",
+            "year": "2021",
+            "date": "09/20/2021"
+        },
+        {
+            "name": "usability paper",
+            "year": "2021",
+            "date": "02/20/2021"
+        },
+        {
+            "name": "frontiers paper",
+            "year": "2020",
+            "date": "09/20/2020"
+        },
+        {
+            "name": "makers project",
+            "year": "2020",
+            "date": "05/20/2020"
+        }
+    ]
+}
