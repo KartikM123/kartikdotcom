@@ -5,6 +5,10 @@ interface TitleComponentProps
 }
 export class TitleComponent extends Component<TitleComponentProps>
 {
+    constructor(props: TitleComponentProps)
+    {
+        super(props);
+    }
     render()
     {
         return (
