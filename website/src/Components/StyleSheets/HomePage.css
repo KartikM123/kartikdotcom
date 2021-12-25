@@ -1,0 +1,70 @@
+.main
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.title
+{
+    width:100%;
+    height: fit-content;
+    overflow: auto;
+}
+
+.optionGrid
+{
+    display:grid;
+    width: 25%;
+    height:100%;
+    float: left;
+    text-align: center;
+}
+.optionGrid a
+{
+    color: grey;
+    text-decoration: none;
+}
+.githubOption
+{
+    display: inline-grid;
+    margin: 0 auto;
+    text-decoration: none;
+}
+.githubOption :hover
+{
+    color: #95afbf;
+}
+.linkedinOption
+{
+    display: inline-grid;
+    margin: 0 auto;
+    text-decoration: none;
+}
+.linkedinOption :hover
+{
+    color: #4B9CD3;
+}
+.randomOption
+{
+    display: inline-grid;
+    margin: 0 auto;
+}
+.randomOption :hover
+{
+    color: #0269ab;
+}
+
+.nameWrapper
+{
+    float:right;
+    width:75%;
+    font-size: 10vw;
+    display: inline-block;
+}
+.fullName
+{
+    display:inline-block; 
+}
+.fancyPeriod
+{
+    display:inline-block;
+    color: #4B9CD3;
+}
