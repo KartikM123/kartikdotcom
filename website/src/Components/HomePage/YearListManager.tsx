@@ -51,7 +51,7 @@ export class YearListManagerComponent extends Component<YearListManagerProps,{al
         var allYears= this.relevantYearsToList();
         console.log(allYears);
         return (
-            <div>
+            <div className="yearlistmanager">
                 {this.state.allYears.map(year => <YearListComponent year={year}/>)}
             </div>
         )

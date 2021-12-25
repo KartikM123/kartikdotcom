@@ -1,0 +1,16 @@
+.main
+{
+    font-family: Helvetica, sans-serif;
+    margin-left:5%;
+}
+
+p
+{
+    margin: 0 auto;
+    display: inline-block;
+}
+
+ul
+{
+    margin: 0 auto;
+}

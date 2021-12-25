@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import '../StyleSheets/Title.css';
 interface TitleComponentProps
 {
 }
@@ -12,8 +12,20 @@ export class TitleComponent extends Component<TitleComponentProps>
     render()
     {
         return (
-            <div>
-                <h1> Kartik Mahajan </h1>
+            <div className="title">
+                <div className="gridWrapper">
+                        <div className="githubOption"><a href="https://github.com/KartikM123">github</a></div>
+                        <div className="linkedinOption"> <a href="https://www.linkedin.com/in/kartik-mahajan-36b885117/">linkedin</a> </div>
+                        <div className="randomOption"> <a href="https://www.youtube.com/watch?v=ZmrJUnkOZRE&ab_channel=kyle">random</a>  </div> 
+                </div>
+            
+                <div className="nameWrapper">
+                    <div className="fullName"> kartik mahajan</div>
+                    <div id="fancyWrapper">
+                        <div id="fancyPeriod">.</div>
+                        <p id="aboutMe">about me</p>
+                    </div>
+                </div>
             </div>
         );
     }
