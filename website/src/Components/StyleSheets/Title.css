@@ -1,10 +1,7 @@
-.main
-{
-    font-family: Arial, Helvetica, sans-serif;
-}
+
 .title
 {
-    width:100%;
+    width:90%;
     height: fit-content;
     overflow: auto;
     display: flex;
@@ -57,18 +54,39 @@
 
 .nameWrapper
 {
-    display: inline-flex;
     flex: 3;
-    font-size: 10vw;
+    font-size: 8vw;
 }
 .fullName
 {
     display:inline-block; 
     margin: 0 auto;
 }
-.fancyPeriod
+#fancyWrapper
+{
+    display: inline-block;
+}
+#fancyPeriod
 {
     display:inline-block;
     color: #4B9CD3;
     margin: 0 auto;
+}
+#fancyWrapper:hover > #fancyPeriod
+{
+    border-color: #4B9CD3;
+    border-width: 3px;
+    color:white;
+}
+#aboutMe
+{
+    font-size: 1.2vw;
+    color: white;
+}
+#fancyWrapper:hover > #aboutMe
+{
+    color: #4B9CD3;
+    cursor: pointer;
+    font-style: italic;
+    text-decoration: underline;
 }

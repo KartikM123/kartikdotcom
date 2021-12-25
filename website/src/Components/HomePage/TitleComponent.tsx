@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import '../StyleSheets/HomePage.css';
+import '../StyleSheets/Title.css';
 interface TitleComponentProps
 {
 }
@@ -20,7 +20,11 @@ export class TitleComponent extends Component<TitleComponentProps>
                 </div>
             
                 <div className="nameWrapper">
-                    <div className="fullName"> kartik mahajan</div><div className="fancyPeriod">.</div>
+                    <div className="fullName"> kartik mahajan</div>
+                    <div id="fancyWrapper">
+                        <div id="fancyPeriod">.</div>
+                        <p id="aboutMe">about me</p>
+                    </div>
                 </div>
             </div>
         );

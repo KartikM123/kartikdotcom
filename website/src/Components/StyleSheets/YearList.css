@@ -1,0 +1,34 @@
+.yearlistmanager
+{
+    margin-top: 5%;
+}
+.yearItem
+{
+    margin-left: 5%;
+    font-size: 3vw;    
+}
+.yearList
+{
+    margin-top: 1.5%;
+    list-style-image: url('../../images/pointer.svg') ;
+    margin-bottom: 3%;
+}
+.yearName
+{
+    font-weight: 500;
+}
+.yearTab
+{
+    font-weight: lighter;
+    font-size: 1.7vw;
+    margin-bottom: 1%;
+}
+.eventDate
+{
+    color: #4B9CD3;
+    font-size: 1.2vw;
+}
+.eventDate:hover
+{
+    color: black;
+}

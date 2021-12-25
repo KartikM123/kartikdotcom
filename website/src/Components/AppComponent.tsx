@@ -2,7 +2,7 @@ import { Component } from "react";
 import React from "react";
 import { TitleComponent } from "./HomePage/TitleComponent";
 import { YearListManagerComponent } from "./HomePage/YearListManager";
-import './StyleSheets/HomePage.css';
+import './StyleSheets/General.css';
 
 interface AppComponentProps 
 {
