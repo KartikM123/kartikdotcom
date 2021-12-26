@@ -30,8 +30,21 @@
 {
     color: #4B9CD3;
     font-size: 1vw;
+    margin-left: 1%;
 }
 .eventDate:hover
 {
     color: black;
+}
+
+.linkStyle
+{
+    margin-left: 1%;
+    text-decoration: underline;
+    font-size: 1vw;
+}
+.linkStyle:hover
+{
+    background-color: #95afbf;
+    cursor: pointer;
 }
