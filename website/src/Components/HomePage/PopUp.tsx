@@ -50,6 +50,7 @@ export class PopUpComponent extends Component<PopUpProps, PopUpState>
                     </p>
 
                     <div className ="modal_links">
+                        <p className="readLink"><a href="https://localhost:3000"> read about it </a></p>
                         <p className="githubLink"><a href="https://github.com/KartikM123"> see it on github </a></p>
                         <p className="otherLink"><a href="https://localhost:3000"> see it in action </a></p>
                     </div>

@@ -45,6 +45,7 @@
 }
 .linkStyle:hover
 {
-    background-color: #95afbf;
+    background-color: #4B9CD3;
+    color:white;
     cursor: pointer;
 }

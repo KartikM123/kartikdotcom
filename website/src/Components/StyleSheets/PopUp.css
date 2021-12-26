@@ -102,6 +102,7 @@
 {
     font-size: 1.2vw;
     display: block;
+    margin-top: 5%;
 
     webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 3s; /* Firefox < 16 */
@@ -109,6 +110,24 @@
          -o-animation: fadein 3s; /* Opera < 12.1 */
             animation: fadein 3s;
 }
+
+.readLink 
+{
+    float: left;
+    width: 33%;
+}
+.readLink a
+{
+    text-decoration: none;
+    color: grey;
+    margin-left: 2%;
+}
+.readLink :hover
+{
+    background-color: #4B9CD3;
+    color:white;
+}
+
 .githubLink 
 {
     float: left;
