@@ -91,7 +91,7 @@ export class YearListComponent extends Component<YearListProps, YearListState>
             var dateSplit = date.split("/");
             var monthToString = this.dateToString(dateSplit[0]);
             var donePrettyDate = monthToString + ", " + dateSplit[1] + " " + dateSplit[2];
-            e.push(<li className="yearTab" key={i.name}>{i.name} <p className="eventDate">{donePrettyDate}</p></li>)
+            e.push(<li className="yearTab" key={i.name}>{i.name} <p className="eventDate">{donePrettyDate}</p> <p> link </p></li>)
         }
         return e;
     }
