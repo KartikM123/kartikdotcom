@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {default as ActivitiesJson} from "../../Static/activities.json";
 import '../StyleSheets/YearList.css';
+import { PopUpComponent } from "./PopUp";
 interface YearListProps
 {
     year: string;
@@ -8,7 +9,9 @@ interface YearListProps
 interface YearListState
 {
     events: any[],
-    renderSuccess: boolean
+    renderSuccess: boolean,
+    toggleOn: boolean,
+    eventToToggle: string
 }
 export class YearListComponent extends Component<YearListProps, YearListState>
 {
@@ -18,7 +21,9 @@ export class YearListComponent extends Component<YearListProps, YearListState>
         this.state = 
         {
             events: [],
-            renderSuccess: false
+            renderSuccess: false,
+            toggleOn: false,
+            eventToToggle: ""
         }
 
         this.activitiesToElement = this.activitiesToElement.bind(this);
@@ -79,6 +84,27 @@ export class YearListComponent extends Component<YearListProps, YearListState>
         }
     }
 
+    togglePopUp(eventName: string)
+    {
+
+        return (() => 
+                this.setState((state,props) => {
+                    return {
+                        toggleOn: true,
+                        eventToToggle: eventName
+                    };
+                }));
+    }
+
+    togglePopUpOff = () => 
+    {
+        this.setState(() => {
+            return {
+                toggleOn: false,
+                eventToToggle: ""
+            }
+        })
+    }
     activitiesToElement()
     {
         var e = []
@@ -90,8 +116,13 @@ export class YearListComponent extends Component<YearListProps, YearListState>
             var date = i.date;
             var dateSplit = date.split("/");
             var monthToString = this.dateToString(dateSplit[0]);
-            var donePrettyDate = monthToString + ", " + dateSplit[1] + " " + dateSplit[2];
-            e.push(<li className="yearTab" key={i.name}>{i.name} <p className="eventDate">{donePrettyDate}</p></li>)
+            var donePrettyDate = "  "+ monthToString + ", " + dateSplit[1] + " " + dateSplit[2];
+            e.push(
+            <li className="yearTab" key={i.name}>
+                {i.name} 
+                <p className="eventDate">  {donePrettyDate}  </p> 
+                <p className="linkStyle" onClick={this.togglePopUp(i.name)} >  link </p>
+            </li>)
         }
         return e;
     }
@@ -104,6 +135,7 @@ export class YearListComponent extends Component<YearListProps, YearListState>
                 <ul className = "yearList">
                 {activitiesElement}
                 </ul>
+                {this.state.toggleOn ? <PopUpComponent year={this.props.year} eventName={this.state.eventToToggle} toggle={this.togglePopUpOff}/> : null}
             </div>
         );
     }
