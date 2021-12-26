@@ -122,6 +122,7 @@ export class YearListComponent extends Component<YearListProps, YearListState>
                 {i.name} 
                 <p className="eventDate">  {donePrettyDate}  </p> 
                 <p className="linkStyle" onClick={this.togglePopUp(i.name)} >  link </p>
+                <p className="eventTag"> {i.tag} </p>
             </li>)
         }
         return e;
