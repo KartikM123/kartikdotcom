@@ -1,0 +1,57 @@
+.researchTag
+{
+    --label-r: 238;
+    --label-g: 172;
+    --label-b: 96;
+    --label-h: 32.1;
+    --label-s: 80.7;
+    --label-l: 65.5;
+}
+.projectTag
+{
+    --label-r: 153;
+    --label-g: 204;
+    --label-b: 204;
+    --label-h: 180;
+    --label-s: 33.3;
+    --label-l: 70;
+}
+
+.genericTag
+{
+    margin-left: 1%; 
+    font-size: 1vw;
+    --lightness-threshold: 0.6;
+    --background-alpha: 0.18;
+    --border-alpha: 0.3;
+    --lighten-by: calc(((var(--lightness-threshold) - var(--perceived-lightness)) * 100) * var(--lightness-switch));
+    --perceived-lightness: calc( ((var(--label-r) * 0.2126) + (var(--label-g) * 0.7152) + (var(--label-b) * 0.0722)) / 255 );
+    --lightness-switch: max(0, min(calc((var(--perceived-lightness) - var(--lightness-threshold)) * -1000), 1));
+    display: inline-block;
+    padding: 0 1%;
+    font-weight: 500;
+    line-height: 18px;
+    border: 1px solid transparent;
+    border-radius: 2em;
+    background: rgba(var(--label-r), var(--label-g), var(--label-b), var(--background-alpha));
+    color: hsl(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) + var(--lighten-by)) * 1%));
+    border-color: hsla(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) + var(--lighten-by)) * 1%), var(--border-alpha));
+}
+
+.yearItem .researchTagTab:hover
+{
+    font-weight: 600; 
+}
+.yearItem .researchTagTab:hover ~ .researchTagTab
+{
+    font-weight: 500;
+}
+
+.yearItem .projectTagTab:hover
+{
+    font-weight: 600; 
+}
+.yearItem .projectTagTab:hover ~ .projectTagTab
+{
+    font-weight: 500;
+}

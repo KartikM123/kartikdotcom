@@ -15,6 +15,12 @@
             "tag": "research"
         },
         {
+            "name": "graduation",
+            "year": "2021",
+            "date": "06/20/2021",
+            "tag": "project"
+        },
+        {
             "name": "frontiers paper",
             "year": "2020",
             "date": "09/20/2020",
