@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {default as ActivitiesJson} from "../../Static/activities.json";
 import '../StyleSheets/YearList.css';
+import '../StyleSheets/Tags.css';
 import { PopUpComponent } from "./PopUp";
 interface YearListProps
 {
@@ -11,7 +12,8 @@ interface YearListState
     events: any[],
     renderSuccess: boolean,
     toggleOn: boolean,
-    eventToToggle: string
+    eventToToggle: string,
+    tagToToggle: string
 }
 export class YearListComponent extends Component<YearListProps, YearListState>
 {
@@ -23,7 +25,8 @@ export class YearListComponent extends Component<YearListProps, YearListState>
             events: [],
             renderSuccess: false,
             toggleOn: false,
-            eventToToggle: ""
+            eventToToggle: "",
+            tagToToggle: ""
         }
 
         this.activitiesToElement = this.activitiesToElement.bind(this);
@@ -84,14 +87,15 @@ export class YearListComponent extends Component<YearListProps, YearListState>
         }
     }
 
-    togglePopUp(eventName: string)
+    togglePopUp(eventName: string, tagName: string)
     {
 
         return (() => 
                 this.setState((state,props) => {
                     return {
                         toggleOn: true,
-                        eventToToggle: eventName
+                        eventToToggle: eventName,
+                        tagToToggle: tagName
                     };
                 }));
     }
@@ -117,11 +121,14 @@ export class YearListComponent extends Component<YearListProps, YearListState>
             var dateSplit = date.split("/");
             var monthToString = this.dateToString(dateSplit[0]);
             var donePrettyDate = "  "+ monthToString + ", " + dateSplit[1] + " " + dateSplit[2];
+
+            var tagClassName = i.tag + "Tag"
             e.push(
-            <li className="yearTab" key={i.name}>
+            <li className={"yearTab " + tagClassName + "Tab"} key={i.name}>
                 {i.name} 
                 <p className="eventDate">  {donePrettyDate}  </p> 
-                <p className="linkStyle" onClick={this.togglePopUp(i.name)} >  link </p>
+                <p className="linkStyle" onClick={this.togglePopUp(i.name, i.tag)} >  link </p>
+                <p className={tagClassName + " genericTag"}> {i.tag} </p>
             </li>)
         }
         return e;
@@ -133,9 +140,9 @@ export class YearListComponent extends Component<YearListProps, YearListState>
             <div className="yearItem">
                 <div className="yearName"> {this.props.year} </div>
                 <ul className = "yearList">
-                {activitiesElement}
+                    {activitiesElement}
                 </ul>
-                {this.state.toggleOn ? <PopUpComponent year={this.props.year} eventName={this.state.eventToToggle} toggle={this.togglePopUpOff}/> : null}
+                {this.state.toggleOn ? <PopUpComponent year={this.props.year} eventName={this.state.eventToToggle} tagName={this.state.tagToToggle} toggle={this.togglePopUpOff}/> : null}
             </div>
         );
     }
