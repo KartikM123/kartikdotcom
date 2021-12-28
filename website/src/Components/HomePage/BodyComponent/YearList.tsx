@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import {default as ActivitiesJson} from "../../../Static/activities.json";
 import '../../StyleSheets/BodyStyles/YearList.css';
 import '../../StyleSheets/Tags.css';
 import { PopUpComponent } from "../PopUp";
+import { IActivitiesStruct } from "../../Utils/Interfaces/IActivities";
 interface YearListProps
 {
     year: string;
+    activities: IActivitiesStruct;
 }
 
 interface YearListState
@@ -36,7 +37,7 @@ export class YearListComponent extends Component<YearListProps, YearListState>
 
     componentWillMount()
     {
-        var activites = ActivitiesJson.projects;
+        var activites = this.props.activities.projects;
         var relevantActivities: any[] = [];
         for (var activity in activites)
         {

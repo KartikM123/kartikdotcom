@@ -1,10 +1,15 @@
 import { Component } from "react";
-import {default as ActivitiesJson} from "../../../Static/activities.json";
 import React from "react";
 import { YearListComponent } from "./YearList";
+import { IActivitiesStruct } from "../../Utils/Interfaces/IActivities";
+
+
 interface YearListManagerProps
 {
+    activities: IActivitiesStruct;
+    toggleSearch: () => void;
 }
+
 export class YearListManagerComponent extends Component<YearListManagerProps,{allYears: any[]}>
 {
     constructor(props: YearListManagerProps)
@@ -18,7 +23,7 @@ export class YearListManagerComponent extends Component<YearListManagerProps,{al
     }
     componentWillMount()
     {
-        var activites = ActivitiesJson.projects;
+        var activites = this.props.activities.projects;
         var relevantYears: any[] = [];
         for (var activity in activites)
         {
@@ -41,7 +46,7 @@ export class YearListManagerComponent extends Component<YearListManagerProps,{al
         for (var year in this.state.allYears)
         {
             var y = this.state.allYears[year];
-            e.push(<div><YearListComponent year={y}/></div>)
+            e.push(<div><YearListComponent year={y} activities={this.props.activities}/></div>)
         }
         return e;
     }
@@ -51,8 +56,8 @@ export class YearListManagerComponent extends Component<YearListManagerProps,{al
         var allYears= this.relevantYearsToList();
         console.log(allYears);
         return (
-            <div className="yearlistmanager">
-                {this.state.allYears.map(year => <YearListComponent year={year}/>)}
+            <div className="yearlistmanager" onClick={this.props.toggleSearch}>
+                {this.state.allYears.map(year => <YearListComponent activities={this.props.activities} year={year}/>)}
             </div>
         )
     }
