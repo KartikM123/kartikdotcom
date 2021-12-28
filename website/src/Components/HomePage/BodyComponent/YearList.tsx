@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import {default as ActivitiesJson} from "../../Static/activities.json";
-import '../StyleSheets/YearList.css';
-import '../StyleSheets/Tags.css';
-import { PopUpComponent } from "./PopUp";
+import {default as ActivitiesJson} from "../../../Static/activities.json";
+import '../../StyleSheets/BodyStyles/YearList.css';
+import '../../StyleSheets/Tags.css';
+import { PopUpComponent } from "../PopUp";
 interface YearListProps
 {
     year: string;
 }
+
 interface YearListState
 {
     events: any[],

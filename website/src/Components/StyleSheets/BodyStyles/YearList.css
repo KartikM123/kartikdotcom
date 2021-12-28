@@ -1,8 +1,6 @@
 .yearlistmanager
 {
     margin-top: 2%;
-    margin-left: 20%;
-    width: 60%;
 }
 .yearItem
 {
@@ -12,7 +10,7 @@
 .yearList
 {
     margin-top: 1.5%;
-    list-style-image: url('../../images/pointer.svg') ;
+    list-style-image: url('../../../images/pointer.svg') ;
     margin-bottom: 3%;
 }
 .yearName

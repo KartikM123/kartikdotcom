@@ -1,5 +1,5 @@
 import { Component } from "react";
-import {default as ActivitiesJson} from "../../Static/activities.json";
+import {default as ActivitiesJson} from "../../../Static/activities.json";
 import React from "react";
 import { YearListComponent } from "./YearList";
 interface YearListManagerProps
