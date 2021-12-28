@@ -37,17 +37,14 @@ export class BodyComponent extends Component<BodyProps, BodyState>
     toggleSearch = () => 
     {
         var test = this.state.activities;
-        test.projects = [test.projects[0]];
-        return (() => {
-                this.setState(() => {
-                    return {
-                        activities: test
-                    };
-                })
-                console.log("here");
-                this.forceUpdate();
-            }
-        );
+        test.projects.push(test.projects[0]);
+        this.setState(() => {
+            return {
+                activities: test
+            };
+        })
+        console.log("here");
+        this.forceUpdate();  //
 
     }
     
@@ -55,7 +52,7 @@ export class BodyComponent extends Component<BodyProps, BodyState>
     {
         console.log(this.state.activities);
         return(
-            <div className = "body" onClick={this.toggleSearch}>
+            <div className = "body">
                 <YearListManagerComponent activities={this.state.activities} toggleSearch={this.toggleSearch} />
             </div>
         );

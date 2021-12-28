@@ -15,7 +15,8 @@ interface YearListState
     renderSuccess: boolean,
     toggleOn: boolean,
     eventToToggle: string,
-    tagToToggle: string
+    tagToToggle: string,
+    activities: IActivitiesStruct
 }
 export class YearListComponent extends Component<YearListProps, YearListState>
 {
@@ -28,7 +29,8 @@ export class YearListComponent extends Component<YearListProps, YearListState>
             renderSuccess: false,
             toggleOn: false,
             eventToToggle: "",
-            tagToToggle: ""
+            tagToToggle: "",
+            activities: this.props.activities
         }
 
         this.activitiesToElement = this.activitiesToElement.bind(this);
@@ -37,7 +39,7 @@ export class YearListComponent extends Component<YearListProps, YearListState>
 
     componentWillMount()
     {
-        var activites = this.props.activities.projects;
+        var activites = this.state.activities.projects;
         var relevantActivities: any[] = [];
         for (var activity in activites)
         {
