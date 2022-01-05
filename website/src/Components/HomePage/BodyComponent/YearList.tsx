@@ -36,8 +36,32 @@ export class YearListComponent extends Component<YearListProps, YearListState>
         this.activitiesToElement = this.activitiesToElement.bind(this);
         this.dateToString = this.dateToString.bind(this);
     }
-
+    
     componentWillMount()
+    {
+        
+    }
+
+    sameArrays(arr1: any[], arr2: any[])
+    {
+        if ( arr1.length != arr2.length)
+        {
+            return false;
+        }
+        return (arr1.every((val, index) => { 
+            
+            var containsValue = false;
+            arr2.forEach(element => {
+                if (element.name == val.name){
+                    containsValue = true;
+                }
+            });
+
+            return containsValue;
+        }))
+    }
+
+    renderYear()
     {
         var activites = this.state.activities.projects;
         var relevantActivities: any[] = [];
@@ -50,14 +74,17 @@ export class YearListComponent extends Component<YearListProps, YearListState>
             }
         }
 
-        this.setState((state,props) => {
-            return {
-                events: relevantActivities,
-                renderSuccess: true
-            }
-        })
+        if (!this.sameArrays(relevantActivities, this.state.events))
+        {
+            console.log('UPDATE Child');
+            this.setState((state,props) => {
+                return {
+                    events: relevantActivities,
+                    renderSuccess: true
+                }
+            })
+        }
     }
-
     dateToString(d: string)
     {
         switch(d)
@@ -139,6 +166,7 @@ export class YearListComponent extends Component<YearListProps, YearListState>
     }
     render()
     {
+        this.renderYear();
         var activitiesElement = this.activitiesToElement()
         return (
             <div className="yearItem">

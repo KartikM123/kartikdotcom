@@ -30,6 +30,20 @@ export class YearListManagerComponent extends Component<YearListManagerProps, Ye
     }
     componentWillMount()
     {
+    
+        this.renderProjects();
+    }
+    sameArrays(arr1: any[], arr2: any[])
+    {
+        if ( arr1.length != arr2.length)
+        {
+            return false;
+        }
+        return (arr1.every((val, index) => {  console.log(val); return arr2.includes(val);}))
+    }
+
+    renderProjects()
+    {
         var activites = this.state.activities.projects;
         var relevantYears: any[] = [];
         for (var activity in activites)
@@ -40,11 +54,17 @@ export class YearListManagerComponent extends Component<YearListManagerProps, Ye
                 relevantYears.push(a.year);
             }
         }
-        this.setState((state, props) => {
-            return ({
-                allYears: relevantYears
+        if (!this.sameArrays(relevantYears, this.state.allYears))
+        {
+            console.log('UPDATE MANAGER')
+            console.log(relevantYears);
+            console.log(this.state.allYears);
+            this.setState((state, props) => {
+                return ({
+                    allYears: relevantYears
+                })
             })
-        })
+        }
     }
 
     relevantYearsToList()
@@ -60,8 +80,9 @@ export class YearListManagerComponent extends Component<YearListManagerProps, Ye
 
     render()
     {
+        this.renderProjects();
         var allYears= this.relevantYearsToList();
-        console.log(allYears);
+        //console.log(allYears);
         return (
             <div className="yearlistmanager" onClick={this.props.toggleSearch}>
                 {this.state.allYears.map(year => <YearListComponent activities={this.props.activities} year={year}/>)}

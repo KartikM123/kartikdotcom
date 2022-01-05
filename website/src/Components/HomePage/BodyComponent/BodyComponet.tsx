@@ -4,6 +4,7 @@ import '../../StyleSheets/BodyStyles/Body.css';
 import React from "react";
 import { IActivitiesStruct, IEventsStruct } from "../../Utils/Interfaces/IActivities";
 import {default as ActivitiesJson} from "../../../Static/activities.json";
+import { randomFill, randomInt } from "crypto";
 
 interface BodyProps
 {
@@ -24,6 +25,9 @@ export class BodyComponent extends Component<BodyProps, BodyState>
         this.state = {
             activities: dummyActivities
         }
+
+        this.toggleSearch = this.toggleSearch.bind(this);
+
     }
 
     componentWillMount()
@@ -34,16 +38,16 @@ export class BodyComponent extends Component<BodyProps, BodyState>
             }
         })
     }
-    toggleSearch = () => 
+    toggleSearch() 
     {
         var test = this.state.activities;
-        test.projects.push(test.projects[0]);
+        test.projects.splice(0,1);
+ 
         this.setState(() => {
             return {
                 activities: test
             };
         })
-        console.log("here");
         this.forceUpdate();  //
 
     }
