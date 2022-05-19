@@ -7,13 +7,13 @@ import { IActivitiesStruct } from "../../Utils/Interfaces/IActivities";
 interface YearListManagerProps
 {
     activities: IActivitiesStruct;
-    toggleSearch: () => void;
+    toggleSearch: (toggle: string) => void;
 }
 
 interface YearListManagerState
 {
     allYears: any[],
-    activities: IActivitiesStruct
+    // activities: IActivitiesStruct
 }
 
 export class YearListManagerComponent extends Component<YearListManagerProps, YearListManagerState>
@@ -22,8 +22,7 @@ export class YearListManagerComponent extends Component<YearListManagerProps, Ye
     {
         super(props);
         this.state = {
-            allYears: [],
-            activities: this.props.activities
+            allYears: []
         };
 
         this.relevantYearsToList = this.relevantYearsToList.bind(this);
@@ -44,7 +43,7 @@ export class YearListManagerComponent extends Component<YearListManagerProps, Ye
 
     renderProjects()
     {
-        var activites = this.state.activities.projects;
+        var activites = this.props.activities.projects;
         var relevantYears: any[] = [];
         for (var activity in activites)
         {
@@ -73,7 +72,7 @@ export class YearListManagerComponent extends Component<YearListManagerProps, Ye
         for (var year in this.state.allYears)
         {
             var y = this.state.allYears[year];
-            e.push(<div><YearListComponent year={y} activities={this.state.activities}/></div>)
+            e.push(<div><YearListComponent year={y} activities={this.props.activities} searchToggle={this.props.toggleSearch}/></div>)
         }
         return e;
     }
@@ -84,8 +83,8 @@ export class YearListManagerComponent extends Component<YearListManagerProps, Ye
         var allYears= this.relevantYearsToList();
         //console.log(allYears);
         return (
-            <div className="yearlistmanager" onClick={this.props.toggleSearch}>
-                {this.state.allYears.map(year => <YearListComponent activities={this.props.activities} year={year}/>)}
+            <div className="yearlistmanager" >
+                {this.state.allYears.map(year => <YearListComponent activities={this.props.activities} year={year} searchToggle={this.props.toggleSearch}/>)}
             </div>
         )
     }

@@ -13,6 +13,7 @@ interface BodyProps
 interface BodyState
 {
     activities: IActivitiesStruct;
+    tagFilters: string [];
 }
 
 
@@ -25,7 +26,8 @@ export class BodyComponent extends Component<BodyProps, BodyState>
         let dummy: IEventsStruct = {name: "", date: "", year: "", tag: ""};
         let dummyActivities: IActivitiesStruct = {version: "", projects: [dummy]};
         this.state = {
-            activities: dummyActivities
+            activities: dummyActivities,
+            tagFilters: []
         }
 
         this.toggleSearch = this.toggleSearch.bind(this);
@@ -40,21 +42,36 @@ export class BodyComponent extends Component<BodyProps, BodyState>
             }
         })
     }
-    toggleSearch() 
+
+    toggleSearch(tag: string) 
     {
+        if (this.state.tagFilters.includes(tag)){
+            this.setState(() => {
+                return {
+                    activities: ActivitiesJson,
+                    tagFilters: []
+                };
+            });
+            return;
+        }
         var test: IActivitiesStruct = {version: "", projects: []};
         test.version = this.state.activities.version;
+        console.log(tag)
+        this.state.activities.projects.forEach((value: IEventsStruct) => {
+            if (value.tag == tag) {
+                test.projects.push(value);
+            }
+        })
         
-        for(var event in this.state.activities.projects) {
-            
-        }
-        test.projects.splice(0,1);
- 
+        var newTagFilters: string[] = this.state.tagFilters;
+        newTagFilters.push(tag);
+
         this.setState(() => {
             return {
-                activities: test
+                activities: test,
+                tagFilters: newTagFilters
             };
-        })
+        });
     }
     
     render()

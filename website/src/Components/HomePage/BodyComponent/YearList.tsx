@@ -7,6 +7,7 @@ interface YearListProps
 {
     year: string;
     activities: IActivitiesStruct;
+    searchToggle: (toggle: string) => void
 }
 
 interface YearListState
@@ -16,8 +17,9 @@ interface YearListState
     toggleOn: boolean,
     eventToToggle: string,
     tagToToggle: string,
-    activities: IActivitiesStruct
+    // activities: IActivitiesStruct
 }
+
 export class YearListComponent extends Component<YearListProps, YearListState>
 {
     constructor(props: YearListProps)
@@ -30,7 +32,6 @@ export class YearListComponent extends Component<YearListProps, YearListState>
             toggleOn: false,
             eventToToggle: "",
             tagToToggle: "",
-            activities: this.props.activities
         }
 
         this.activitiesToElement = this.activitiesToElement.bind(this);
@@ -63,7 +64,7 @@ export class YearListComponent extends Component<YearListProps, YearListState>
 
     renderYear()
     {
-        var activites = this.state.activities.projects;
+        var activites = this.props.activities.projects;
         var relevantActivities: any[] = [];
         for (var activity in activites)
         {
@@ -131,6 +132,7 @@ export class YearListComponent extends Component<YearListProps, YearListState>
                 }));
     }
 
+
     togglePopUpOff = () => 
     {
         this.setState(() => {
@@ -139,6 +141,14 @@ export class YearListComponent extends Component<YearListProps, YearListState>
                 eventToToggle: ""
             }
         })
+    }
+
+    toggleFilterManager(tag: string)
+    {
+
+        return (() => 
+            this.props.searchToggle(tag)
+        );
     }
     activitiesToElement()
     {
@@ -154,12 +164,13 @@ export class YearListComponent extends Component<YearListProps, YearListState>
             var donePrettyDate = "  "+ monthToString + ", " + dateSplit[1] + " " + dateSplit[2];
 
             var tagClassName = i.tag + "Tag"
+
             e.push(
             <li className={"yearTab " + tagClassName + "Tab"} key={i.name}>
                 {i.name} 
                 <p className="eventDate">  {donePrettyDate}  </p> 
                 <p className="linkStyle" onClick={this.togglePopUp(i.name, i.tag)} >  link </p>
-                <p className={tagClassName + " genericTag"}> {i.tag} </p>
+                <p className={tagClassName + " genericTag"} onClick={this.toggleFilterManager(i.tag)}> {i.tag} </p>
             </li>)
         }
         return e;
