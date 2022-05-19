@@ -14,6 +14,8 @@ interface BodyState
 {
     activities: IActivitiesStruct;
 }
+
+
 export class BodyComponent extends Component<BodyProps, BodyState>
 {
     constructor(props: BodyProps)
@@ -40,7 +42,12 @@ export class BodyComponent extends Component<BodyProps, BodyState>
     }
     toggleSearch() 
     {
-        var test = this.state.activities;
+        var test: IActivitiesStruct = {version: "", projects: []};
+        test.version = this.state.activities.version;
+        
+        for(var event in this.state.activities.projects) {
+            
+        }
         test.projects.splice(0,1);
  
         this.setState(() => {
@@ -48,8 +55,6 @@ export class BodyComponent extends Component<BodyProps, BodyState>
                 activities: test
             };
         })
-        this.forceUpdate();  //
-
     }
     
     render()

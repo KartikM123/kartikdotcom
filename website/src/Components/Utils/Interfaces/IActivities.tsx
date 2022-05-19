@@ -11,5 +11,4 @@ export interface IActivitiesStruct
 {
     version: string;
     projects: IEventsStruct[]; 
-
 }
