@@ -1,5 +1,6 @@
 .researchTag
 {
+    cursor: pointer;
     --label-r: 238;
     --label-g: 172;
     --label-b: 96;
@@ -9,6 +10,7 @@
 }
 .projectTag
 {
+    cursor: pointer;
     --label-r: 153;
     --label-g: 204;
     --label-b: 204;
@@ -38,7 +40,15 @@
     border-color: hsla(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) + var(--lighten-by)) * 1%), var(--border-alpha));
 }
 
-.yearItem .researchTagTab:hover
+.genericTag:hover
+{
+    color: white;
+    background: hsl(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) + var(--lighten-by)) * 1%));
+    border-color: hsl(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) + var(--lighten-by)) * 1%));
+}
+
+
+/* .yearItem .researchTagTab:hover
 {
     font-weight: 600; 
 }
@@ -54,4 +64,4 @@
 .yearItem .projectTagTab:hover ~ .projectTagTab
 {
     font-weight: 500;
-}
+} */
