@@ -80,7 +80,6 @@ export class BodyComponent extends Component<BodyProps, BodyState>
     generateTags()
     {
         var e = [];
-        console.log(this.state.tagFilter + "ASdva")
         
         for (var t in knownTags) {
             var tag = knownTags[t];
