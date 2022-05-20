@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { YearListManagerComponent } from "./YearListManager";
 import '../../StyleSheets/BodyStyles/Body.css';
+import '../../StyleSheets/Tags.css';
 import React from "react";
 import { IActivitiesStruct, IEventsStruct } from "../../Utils/Interfaces/IActivities";
 import {default as ActivitiesJson} from "../../../Static/activities.json";
@@ -13,9 +14,10 @@ interface BodyProps
 interface BodyState
 {
     activities: IActivitiesStruct;
-    tagFilters: string [];
+    tagFilter: string;
 }
 
+const knownTags = ["project", "research"]
 
 export class BodyComponent extends Component<BodyProps, BodyState>
 {
@@ -27,7 +29,7 @@ export class BodyComponent extends Component<BodyProps, BodyState>
         let dummyActivities: IActivitiesStruct = {version: "", projects: [dummy]};
         this.state = {
             activities: dummyActivities,
-            tagFilters: []
+            tagFilter: ""
         }
 
         this.toggleSearch = this.toggleSearch.bind(this);
@@ -45,11 +47,11 @@ export class BodyComponent extends Component<BodyProps, BodyState>
 
     toggleSearch(tag: string) 
     {
-        if (this.state.tagFilters.includes(tag)){
+        if (this.state.tagFilter == tag){
             this.setState(() => {
                 return {
                     activities: ActivitiesJson,
-                    tagFilters: []
+                    tagFilter: ""
                 };
             });
             return;
@@ -62,23 +64,44 @@ export class BodyComponent extends Component<BodyProps, BodyState>
                 test.projects.push(value);
             }
         })
-        
-        var newTagFilters: string[] = this.state.tagFilters;
-        newTagFilters.push(tag);
 
         this.setState(() => {
             return {
                 activities: test,
-                tagFilters: newTagFilters
+                tagFilter: tag
             };
         });
+    }
+
+    tagClickProxy(tag:string) { 
+        return (() => {this.toggleSearch(tag)});
+    }
+
+    generateTags()
+    {
+        var e = [];
+        console.log(this.state.tagFilter + "ASdva")
+        
+        for (var t in knownTags) {
+            var tag = knownTags[t];
+            if (this.state.tagFilter == "" || this.state.tagFilter == tag) {
+                var tagClassName = tag + "Tag";
+                e.push(<p className={tagClassName + " genericTag"} onClick={this.tagClickProxy(tag)}> {tag} </p>)
+            }
+        }
+
+        return e;
     }
     
     render()
     {
         console.log(this.state.activities);
+        var tagsGenerated = this.generateTags();
         return(
             <div className = "body">
+                <div>
+                    {tagsGenerated}
+                </div>
                 <YearListManagerComponent activities={this.state.activities} toggleSearch={this.toggleSearch} />
             </div>
         );
