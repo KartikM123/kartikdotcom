@@ -1,0 +1,13 @@
+.menuWrapper{
+    display: flexbox;
+}
+
+.menuOption{
+    color: black;
+    cursor: pointer;
+    flex: auto;
+}
+
+.menuClicked{
+    color: red;
+}

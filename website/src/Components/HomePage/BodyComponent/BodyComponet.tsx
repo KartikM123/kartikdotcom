@@ -98,9 +98,6 @@ export class BodyComponent extends Component<BodyProps, BodyState>
         var tagsGenerated = this.generateTags();
         return(
             <div className = "body">
-                <video autoPlay playsInline muted loop>
-                    <source src="https://dwvo2npct47gg.cloudfront.net/videos/yamsday2021.mp4" type="video/mp4"/>
-                </video>
                 <div>
                     {tagsGenerated}
                 </div>
