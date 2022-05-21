@@ -1,5 +1,7 @@
 import React from "react";
 import { Component } from "react";
+import '../../StyleSheets/Menu.css';
+
 interface MenuComponentProps
 {
     menuCallback: (item:string) => void;
@@ -32,7 +34,7 @@ export class MenuComponent extends Component<MenuComponentProps, MenuComponentSt
 
             let element = document.getElementById(item);
             if (element) {
-                element.className += "menuClicked";
+                element.className += " menuClicked";
             }
 
             this.props.menuCallback(item);

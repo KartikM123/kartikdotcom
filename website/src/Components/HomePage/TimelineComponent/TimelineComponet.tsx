@@ -19,7 +19,7 @@ interface BodyState
 
 const knownTags = ["project", "research"]
 
-export class BodyComponent extends Component<BodyProps, BodyState>
+export class TimelineComponent extends Component<BodyProps, BodyState>
 {
     constructor(props: BodyProps)
     {

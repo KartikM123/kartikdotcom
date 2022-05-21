@@ -1,13 +1,21 @@
 .menuWrapper{
-    display: flexbox;
+    display: flex;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 .menuOption{
     color: black;
     cursor: pointer;
     flex: auto;
+    text-align: center;
+}
+
+.menuOption:hover{
+    color: #61dafb;
 }
 
 .menuClicked{
-    color: red;
+    color: #61dafb;
 }
