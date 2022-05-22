@@ -98,8 +98,9 @@ export class TimelineComponent extends Component<BodyProps, BodyState>
         var tagsGenerated = this.generateTags();
         return(
             <div className = "body">
-                <div>
-                    {tagsGenerated}
+                <div className="tags">
+                    <p className="tagHeader">Tags</p>
+                    <div>{tagsGenerated} </div>
                 </div>
                 <YearListManagerComponent activities={this.state.activities} toggleSearch={this.toggleSearch} />
             </div>

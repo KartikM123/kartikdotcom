@@ -10,7 +10,6 @@
 .yearList
 {
     margin-top: 1.5%;
-    list-style-image: url('../../../images/pointer.svg') ;
     margin-bottom: 3%;
 }
 .yearName
@@ -21,13 +20,14 @@
 .yearTab
 {
     font-weight: lighter;
-    font-size: 1.3vw;
+    font-size: 1vw;
     margin-bottom: 1%;
 }
 .eventDate
 {
     color: #4B9CD3;
     font-size: 1vw;
+    font-family: monospace;
     margin-left: 1%;
 }
 .eventDate:hover
@@ -40,6 +40,7 @@
     margin-left: 1%;
     text-decoration: underline;
     font-size: 1vw;
+    font-family: monospace;
 }
 .linkStyle:hover
 {

@@ -22,7 +22,8 @@
 .genericTag
 {
     margin-left: 1%; 
-    font-size: 1vw;
+    font-size: 0.8vw;
+    font-family: monospace;
     --lightness-threshold: 0.6;
     --background-alpha: 0.18;
     --border-alpha: 0.3;

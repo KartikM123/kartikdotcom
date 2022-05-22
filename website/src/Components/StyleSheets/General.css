@@ -1,3 +1,9 @@
+.background
+{
+    background-color: #FAF9F6;
+    width:100vw;
+    min-height:100vh;
+}
 .main
 {
     font-family: Helvetica, sans-serif;

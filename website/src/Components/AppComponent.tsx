@@ -43,10 +43,12 @@ export class AppComponent extends Component<AppComponentProps, AppComponentState
         }
 
         return(
-            <div className="main">
-                <TitleComponent />
-                <MenuComponent menuCallback={this.menuCallBack}/>
-                {bodyComponent}
+            <div className="background">
+                <div className="main">
+                    <TitleComponent />
+                    <MenuComponent menuCallback={this.menuCallBack}/>
+                    {bodyComponent}
+                </div>
             </div>
         );
     }

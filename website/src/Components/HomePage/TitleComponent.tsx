@@ -23,7 +23,7 @@ export class TitleComponent extends Component<TitleComponentProps>
                     <div className="fullName"> kartik mahajan</div>
                     <div id="fancyWrapper">
                         <div id="fancyPeriod">.</div>
-                        <p id="aboutMe">about me</p>
+                        <a id="aboutMe" href="https://github.com/KartikM123/kartikdotcom/issues">coming soon</a>
                     </div>
                 </div>
             </div>

@@ -58,6 +58,9 @@ export class MenuComponent extends Component<MenuComponentProps, MenuComponentSt
                 <p id="Timeline" className="menuOption" onClick={this.clickMenuItem("Timeline")}>
                     Timeline
                 </p>
+                <p id="Blog" className="menuOption" onClick={this.clickMenuItem("Blog")}>
+                    Blog
+                </p>
                 <p id="About me" className="menuOption" onClick={this.clickMenuItem("About me")}>
                     About me
                 </p>

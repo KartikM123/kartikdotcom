@@ -11,6 +11,18 @@
     -ms-animation: fadeIn 3s;
 }
 
+.tagHeader {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 1%;
+  margin-left: 1%;
+  font-size: 1.5vw;
+}
+.tags {
+  margin-left: 5%;
+}
+
+
 .video 
 {
     width: 100%
