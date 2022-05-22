@@ -12,7 +12,7 @@ export class LatestComponent extends Component<LatestComponentProps>
     render()
     {
         return (
-            <div className="body">
+            <div className="body fadeIn">
                 <video autoPlay playsInline muted loop>
                     <source src="https://dwvo2npct47gg.cloudfront.net/videos/yamsday2021.mp4" type="video/mp4"/>
                 </video>
