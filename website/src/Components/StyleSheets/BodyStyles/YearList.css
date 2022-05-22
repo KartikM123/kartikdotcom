@@ -5,6 +5,7 @@
 .yearItem
 {
     margin-left: 5%;
+    list-style-type: square;
     font-size: 2vw;    
 }
 .yearList
