@@ -19,9 +19,9 @@ export class LatestComponent extends Component<LatestComponentProps>
                 <video autoPlay playsInline muted loop className="video">
                     <source src="https://dwvo2npct47gg.cloudfront.net/videos/yamsday2021.mp4" type="video/mp4"/>
                 </video>
-                <p className="version">
+                <a className="version" href="https://github.com/KartikM123/kartikdotcom/blob/main/CHANGELOG.md">
                     version v{version} 
-                </p>
+                </a>
             </div>
         )
     }
